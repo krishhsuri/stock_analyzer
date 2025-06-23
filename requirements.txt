@@ -1,12 +1,16 @@
 pandas>=2.0.0
 numpy>=1.24.0
-yfinance>=0.2.36
+nsepy>=0.8 # For Indian NSE data (historical, splits, dividends)
+yfinance>=0.2.36  # For Indian tickers (EOD data)
 matplotlib>=3.7.0
 seaborn>=0.12.0
 scikit-learn>=1.3.0
-ta-lib>=0.4.28
+backtrader>=1.9.78.123  # Backtesting engine
 requests>=2.31.0
-beautifulsoup4>=4.12.0
-sec-api>=1.0.0
-python-dotenv>=1.0.0
-mplfinance>=0.12.10b0 
+beautifulsoup4>=4.12.0  # For web scraping (Screener/TickerTape)
+python-dotenv>=1.0.0  # For environment variable management
+mplfinance>=0.12.10b0  # For financial charting
+# Optional: TA-Lib (for technical indicators, can be tricky to install)
+# ta-lib>=0.4.28
+# Note: sec-api removed (US SEC only, not needed for Indian markets)
+pytest>=7.0.0 

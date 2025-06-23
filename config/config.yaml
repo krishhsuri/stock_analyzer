@@ -1,0 +1,25 @@
+# Configuration file for stock analyzer project
+
+data:
+  symbols:
+    - symbol: RELIANCE.NS
+      trendlyne_dividend_url: https://trendlyne.com/equity/Dividend/RELIANCE/1127/reliance-industries-ltd-dividend/
+    - symbol: TCS.NS
+      trendlyne_dividend_url: https://trendlyne.com/equity/Dividend/TCS/874/tata-consultancy-services-ltd-dividend/
+    - symbol: INFY.NS
+      trendlyne_dividend_url: https://trendlyne.com/equity/Dividend/INFY/1046/infosys-ltd-dividend/
+  source: yfinance  # Options: yfinance, custom_scraper
+  fundamentals_source: screener  # Options: screener, tickertape, custom
+  start_date: '2015-01-01'
+  end_date: '2023-12-31'
+  adjust_for_splits: true
+  adjust_for_dividends: true
+
+database:
+  type: sqlite  # Options: sqlite, postgresql
+  path: './data/stock_data.db'
+
+general:
+  log_level: INFO
+  save_raw_data: true
+  save_clean_data: true 
