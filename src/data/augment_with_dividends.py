@@ -57,7 +57,7 @@ def augment_with_dividends():
         symbol = symbol_entry['symbol']
         trendlyne_url = symbol_entry['trendlyne_dividend_url']
         symbol_folder = symbol.replace('.NS', '').replace('.BSE', '').upper()
-        in_dir = os.path.join(os.path.dirname(__file__), f'../../data/{symbol_folder}')
+        in_dir = os.path.join(os.path.dirname(__file__), f'../../data/{symbol_folder}/unclean_timedata')
         os.makedirs(in_dir, exist_ok=True)
         price_path = os.path.join(in_dir, f'{symbol}_price.csv')
         if not os.path.exists(price_path):

@@ -4,6 +4,11 @@ import sys
 steps = [
     ("Fetching and saving price data...", "src/data/data_pipeline.py"),
     ("Augmenting with dividend data...", "src/data/augment_with_dividends.py"),
+    ("Caculating stats ...", "src/data/stock_stats.py"),
+    ("Calculating technical indicators...", "src/analysis/technical_indicators.py"),
+    ("Calculating returns and volatility...", "src/analysis/returns_volatility.py"),
+    ("Calculating volume indicators...", "src/analysis/volume_indicators.py"),
+    ("Merging and cleaning all features...", "src/analysis/merge_features.py")
 ]
 
 def run_pipeline():

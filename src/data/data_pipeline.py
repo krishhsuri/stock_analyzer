@@ -38,7 +38,7 @@ def run_pipeline():
     for symbol_entry in config['data']['symbols']:
         symbol = symbol_entry['symbol']
         symbol_folder = symbol.replace('.NS', '').replace('.BSE', '').upper()
-        out_dir = os.path.join(os.path.dirname(__file__), f'../../data/{symbol_folder}')
+        out_dir = os.path.join(os.path.dirname(__file__), f'../../data/{symbol_folder}/unclean_timedata')
         os.makedirs(out_dir, exist_ok=True)
         print(f"\n--- Fetching full range for {symbol} ---")
         df = fetch_price_data(
