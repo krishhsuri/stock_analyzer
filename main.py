@@ -4,6 +4,7 @@ import sys
 steps = [
     ("Fetching and saving price data...", "src/data/data_pipeline.py"),
     ("Augmenting with dividend data...", "src/data/augment_with_dividends.py"),
+    ("Scraping fundamental data...", "src/data/fundamental_scraper.py"),
     ("Caculating stats ...", "src/data/stock_stats.py"),
     ("Calculating technical indicators...", "src/analysis/technical_indicators.py"),
     ("Calculating returns and volatility...", "src/analysis/returns_volatility.py"),

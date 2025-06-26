@@ -21,9 +21,6 @@ def obv(close, volume):
             obv.append(obv[-1])
     return pd.Series(obv, index=close.index)
 
-def vwap(df):
-    return (df['Close'] * df['Volume']).cumsum() / df['Volume'].cumsum()
-
 def chaikin_money_flow(df, window=20):
     mf_multiplier = ((df['Close'] - df['Low']) - (df['High'] - df['Close'])) / (df['High'] - df['Low'])
     mf_multiplier = mf_multiplier.replace([np.inf, -np.inf], 0).fillna(0)
@@ -57,12 +54,11 @@ def generate_volume_indicators():
             print(f"Required columns missing for {symbol}, skipping.")
             continue
         df['OBV'] = obv(df['Close'], df['Volume'])
-        df['VWAP'] = vwap(df)
         df['CMF_20'] = chaikin_money_flow(df, 20)
         lag_cols = ['OBV','CMF_20']
         df = add_lags(df, lag_cols, lags=[1,2,3])
         cols = ['Date'] if 'Date' in df.columns else []
-        cols += ['OBV','VWAP','CMF_20']
+        cols += ['OBV','CMF_20']
         for col in lag_cols:
             for lag in [1,2,3]:
                 cols.append(f'{col}_lag{lag}')
